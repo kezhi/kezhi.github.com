@@ -11,6 +11,7 @@ $ hexo new "My New Post"
 ```
 
 More info: [Writing](http://hexo.io/docs/writing.html)
+More info: [Writing](http://hexo.io/docs/writing.html)
 
 ### Run server
 

@@ -32,6 +32,7 @@ git pull
 menu:
   Home: /
   Archives: /archives
+  mytest: /archives
 rss: /atom.xml
 
 # Content
