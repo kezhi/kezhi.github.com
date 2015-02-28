@@ -5,7 +5,8 @@
   
   <title>Express 文件上传 - Multer | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装所需模块npm install --save multer
+  <meta name="description" content="安装所需模块
+ npm install --save multer
 
 上传部分的html代码
  &lt;form method='post' action='/uploadimage' enctype='multipart/form-data'&gt;
@@ -15,7 +16,8 @@
 <meta property="og:title" content="Express 文件上传 - Multer">
 <meta property="og:url" content="http://kezhi.me/2015/02/28/express-multer/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="安装所需模块npm install --save multer
+<meta property="og:description" content="安装所需模块
+ npm install --save multer
 
 上传部分的html代码
  &lt;form method='post' action='/uploadimage' enctype='multipart/form-data'&gt;
@@ -23,7 +25,8 @@
      选择图片：&lt;input type='file'/&gt;">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Express 文件上传 - Multer">
-<meta name="twitter:description" content="安装所需模块npm install --save multer
+<meta name="twitter:description" content="安装所需模块
+ npm install --save multer
 
 上传部分的html代码
  &lt;form method='post' action='/uploadimage' enctype='multipart/form-data'&gt;
@@ -79,7 +82,7 @@
         <section id="main"><article id="post-express-multer" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/02/28/express-multer/" class="article-date">
-  <time datetime="2015-02-28T10:04:49.000Z" itemprop="datePublished">Feb 28 2015</time>
+  <time datetime="2015-02-28T10:10:46.000Z" itemprop="datePublished">Feb 28 2015</time>
 </a>
     
   </div>
@@ -99,7 +102,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li><p>安装所需模块<br><code>npm install --save multer</code></p>
+<li><p>安装所需模块</p>
+<p> <code>npm install --save multer</code></p>
 </li>
 <li><p>上传部分的html代码</p>
 <pre><code> &lt;form <span class="keyword">method</span>=<span class="string">'post'</span> action=<span class="string">'/uploadimage'</span> enctype=<span class="string">'multipart/form-data'</span>&gt;
@@ -107,10 +111,8 @@
      选择图片：&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">'file'</span>/&gt;
      &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">'submit'</span> <span class="keyword">value</span>=<span class="string">'提交'</span>/&gt;
  &lt;/form&gt;
-</code></pre></li>
-</ol>
-<pre><code><span class="variable">enctype=</span><span class="string">"multipart/form-data"</span>的作用是设置表单上传文件的正确编码，浏览器用表单提交    数据的格式
-</code></pre><ol>
+</code></pre><p>enctype=”multipart/form-data”的作用是设置表单上传文件的正确编码，浏览器用表单提交数据的格式</p>
+</li>
 <li><p>用法</p>
 <pre><code> <span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)
  <span class="keyword">var</span> multer  = <span class="built_in">require</span>(<span class="string">'multer'</span>)
