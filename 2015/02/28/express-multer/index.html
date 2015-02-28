@@ -8,9 +8,9 @@
   <meta name="description" content="安装所需模块npm install --save multer
 
 上传部分的html代码
-
-
-12345&lt;form method='post' action='/uploadimage' enctype='multipart/form-data'&gt;          &lt;input type='text'/&gt;          选择图片：&lt;input type='fi">
+ &lt;form method='post' action='/uploadimage' enctype='multipart/form-data'&gt;
+     &lt;input type='text'/&gt;
+     选择图片：&lt;input type='file'/&gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Express 文件上传 - Multer">
 <meta property="og:url" content="http://kezhi.me/2015/02/28/express-multer/">
@@ -18,17 +18,17 @@
 <meta property="og:description" content="安装所需模块npm install --save multer
 
 上传部分的html代码
-
-
-12345&lt;form method='post' action='/uploadimage' enctype='multipart/form-data'&gt;          &lt;input type='text'/&gt;          选择图片：&lt;input type='fi">
+ &lt;form method='post' action='/uploadimage' enctype='multipart/form-data'&gt;
+     &lt;input type='text'/&gt;
+     选择图片：&lt;input type='file'/&gt;">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Express 文件上传 - Multer">
 <meta name="twitter:description" content="安装所需模块npm install --save multer
 
 上传部分的html代码
-
-
-12345&lt;form method='post' action='/uploadimage' enctype='multipart/form-data'&gt;          &lt;input type='text'/&gt;          选择图片：&lt;input type='fi">
+ &lt;form method='post' action='/uploadimage' enctype='multipart/form-data'&gt;
+     &lt;input type='text'/&gt;
+     选择图片：&lt;input type='file'/&gt;">
 
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -79,7 +79,7 @@
         <section id="main"><article id="post-express-multer" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/02/28/express-multer/" class="article-date">
-  <time datetime="2015-02-28T09:55:55.000Z" itemprop="datePublished">Feb 28 2015</time>
+  <time datetime="2015-02-28T10:04:49.000Z" itemprop="datePublished">Feb 28 2015</time>
 </a>
     
   </div>
@@ -102,22 +102,35 @@
 <li><p>安装所需模块<br><code>npm install --save multer</code></p>
 </li>
 <li><p>上传部分的html代码</p>
-</li>
+<pre><code> &lt;form <span class="keyword">method</span>=<span class="string">'post'</span> action=<span class="string">'/uploadimage'</span> enctype=<span class="string">'multipart/form-data'</span>&gt;
+     &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span>/&gt;
+     选择图片：&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">'file'</span>/&gt;
+     &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">'submit'</span> <span class="keyword">value</span>=<span class="string">'提交'</span>/&gt;
+ &lt;/form&gt;
+</code></pre></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form <span class="keyword">method</span>=<span class="string">'post'</span> action=<span class="string">'/uploadimage'</span> enctype=<span class="string">'multipart/form-data'</span>&gt;</div><div class="line">          &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span>/&gt;</div><div class="line">          选择图片：&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">'file'</span>/&gt;</div><div class="line">          &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">'submit'</span> <span class="keyword">value</span>=<span class="string">'提交'</span>/&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
-
-
 <pre><code><span class="variable">enctype=</span><span class="string">"multipart/form-data"</span>的作用是设置表单上传文件的正确编码，浏览器用表单提交    数据的格式
 </code></pre><ol>
-<li>用法</li>
-</ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</div><div class="line"><span class="keyword">var</span> multer  = <span class="built_in">require</span>(<span class="string">'multer'</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express()</div><div class="line"></div><div class="line">app.use(multer({</div><div class="line">	  dest: <span class="string">'./uploads/'</span>,</div><div class="line">	  rename: <span class="function"><span class="keyword">function</span> <span class="params">(fieldname, filename)</span> </span>{</div><div class="line"> 	  <span class="keyword">return</span> filename.replace(<span class="regexp">/\W+/g</span>, <span class="string">'-'</span>).toLowerCase() + <span class="built_in">Date</span>.now()</div><div class="line">	 }</div><div class="line">}))</div></pre></td></tr></table></figure>
+<li><p>用法</p>
+<pre><code> <span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)
+ <span class="keyword">var</span> multer  = <span class="built_in">require</span>(<span class="string">'multer'</span>)
+ <span class="keyword">var</span> app = express()
 
-<ol>
-<li>路由模块</li>
+ app.use(multer({
+       dest: <span class="string">'./uploads/'</span>,
+        rename: <span class="function"><span class="keyword">function</span> <span class="params">(fieldname, filename)</span> </span>{
+             <span class="keyword">return</span> filename.replace(<span class="regexp">/\W+/g</span>, <span class="string">'-'</span>).toLowerCase() + <span class="built_in">Date</span>.now()
+       }
+ }))
+</code></pre></li>
+<li><p>路由模块</p>
+<pre><code> router.post(<span class="string">'/uploadimage'</span>,<span class="function"><span class="keyword">function</span><span class="params">(req,res)</span></span>{
+     res.status(<span class="number">200</span>).json({
+         file:req.files
+     });
+ });
+</code></pre></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">router.post(<span class="string">'/uploadimage'</span>,<span class="function"><span class="keyword">function</span><span class="params">(req,res)</span></span>{</div><div class="line">	res.status(<span class="number">200</span>).json({</div><div class="line">		file:req.files</div><div class="line">	});</div><div class="line"></div><div class="line">});</div></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -131,19 +144,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/02/28/gulp-livereload/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/02/28/gulp-coffee-demo/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Gulp + Gulp-connect + watch + livereload
+          gulp-coffee-demo
         
       </div>
     </a>
   
   
-    <a href="/2015/02/28/supervisor/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/02/28/gulp-livereload/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">node supervisor</div>
+      <div class="article-nav-title">Gulp + Gulp-connect + watch + livereload</div>
     </a>
   
 </nav>
@@ -177,7 +190,7 @@
       <ul>
         
           <li>
-            <a href="/2015/02/28/gulp-livereload/">Gulp + Gulp-connect + watch + livereload</a>
+            <a href="/2015/02/28/gulp-coffee-demo/">gulp-coffee-demo</a>
           </li>
         
           <li>
@@ -185,11 +198,11 @@
           </li>
         
           <li>
-            <a href="/2015/02/28/supervisor/">node supervisor</a>
+            <a href="/2015/02/28/gulp-livereload/">Gulp + Gulp-connect + watch + livereload</a>
           </li>
         
           <li>
-            <a href="/2015/02/27/gulp-coffee-demo/">gulp-coffee-demo</a>
+            <a href="/2015/02/28/supervisor/">node supervisor</a>
           </li>
         
           <li>
