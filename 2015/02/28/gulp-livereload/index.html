@@ -85,7 +85,7 @@
         <section id="main"><article id="post-gulp-livereload" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/02/28/gulp-livereload/" class="article-date">
-  <time datetime="2015-02-28T09:45:20.000Z" itemprop="datePublished">Feb 28 2015</time>
+  <time datetime="2015-02-28T09:53:56.000Z" itemprop="datePublished">Feb 28 2015</time>
 </a>
     
   </div>
@@ -117,6 +117,8 @@
 </li>
 </ol>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引入插件</span></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> connect = <span class="built_in">require</span>(<span class="string">'gulp-connect'</span>);</div><div class="line"></div><div class="line"><span class="comment">//创建watch任务去检测文件的改动</span></div><div class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">   	gulp.watch([<span class="string">'../../../src/*.html'</span>], [<span class="string">'html'</span>]);</div><div class="line">});</div><div class="line"><span class="comment">//使用connect启动一个Web服务器</span></div><div class="line">gulp.task(<span class="string">'connect'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">   	connect.server({</div><div class="line">       	root: <span class="string">'../../../src'</span>,</div><div class="line">       		livereload: <span class="literal">true</span></div><div class="line">   		});</div><div class="line">});</div><div class="line"><span class="comment">//调用要执行的任务</span></div><div class="line">gulp.task(<span class="string">'html'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  		gulp.src(<span class="string">'../../../src/*.html'</span>).pipe(connect.reload());</div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">//运行任务</span></div><div class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'connect'</span>, <span class="string">'watch'</span>]);</div></pre></td></tr></table></figure>
+
+
 
 
 <ol>
