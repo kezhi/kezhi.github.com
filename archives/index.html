@@ -99,6 +99,100 @@
       
       
   
+    <h1 class="title"><a href="/2015/04/09/smalljs/">Small js</a></h1>
+  
+
+      <time datetime="2015-04-08T17:10:39.000Z"><a href="/2015/04/09/smalljs/">Apr 9 2015</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <h2 id="Page">Page</h2>
+<p>是一个轻量级的用来构建单页应用的客户端路由库，它有一个受Express的启发而来的简单的API，<br>你可以用它构建平滑的用户界面,并且应用程序不同的页面都拥有可链接的url，因为它利用了HTML5 history API</p>
+<h2 id="Routing">Routing</h2>
+<p>Page 提供了一些不同作用一个page函数</p>
+<pre><code><span class="keyword">var</span> page = <span class="built_in">require</span>(<span class="string">'page'</span>);
+</code></pre><p>第一个作用是指定路由，如果你使用Ruby on Rails或Express或类似的框架,这应该看起来很熟悉:</p>
+<pre><code>page(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+      <span class="comment">// Do something to set up the index page</span>
+});
+
+page(<span class="string">'/about'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+     <span class="comment">// Set up the about page</span>
+});
+</code></pre><p>你的路由可以包含参数,你可以通过上下文判定的参数来处理你的路由</p>
+<pre><code>page(<span class="string">'/user/:id'</span>, <span class="function"><span class="keyword">function</span><span class="params">(context)</span></span>{
+      <span class="keyword">var</span> userId = context.params.id;
+      <span class="built_in">console</span>.log(<span class="string">'Loading details for user'</span>, userId);
+});
+</code></pre><p>你也可以使用通配符来作为参数,在这种情况下,你将需要使用数组索引访问参数:</p>
+<pre><code>page(<span class="string">'/files/*'</span>, <span class="function"><span class="keyword">function</span><span class="params">(context)</span></span>{
+      <span class="keyword">var</span> filePath = context.params[<span class="number">0</span>];
+      <span class="built_in">console</span>.log(<span class="string">'Loading file'</span>, filePath);
+});
+</code></pre><p>使用通配符和命名参数的一个关键区别是通配符可以匹配字符“/”,而命名的参数不能。在我们的文件路径示例中,使用通配符时文件路径可以包含任意嵌套的子目录。</p>
+<p>使用通配符的另一个有用的方法是定义一个回退的路由:</p>
+<pre><code>page(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+      <span class="built_in">console</span>.error(<span class="string">'Page not found :('</span>);
+});
+</code></pre><h2 id="Starting_The_Router">Starting The Router</h2>
+<p>一旦你定义了所有的路由,当其他页面访问完毕之后,你需要启动路由,但这一次没有参数:</p>
+<pre><code><span class="function">page</span>();
+</code></pre><p>如果这样写你觉得很奇怪，想要更明确一点，也可以写成：</p>
+<pre><code>page.start();
+</code></pre><p>这两个都有一个可选的参数对象,包含以下属性:</p>
+<p><b>click</b> - 是否自动绑定到页面上的点击事件和拦截链接点击和阻止它们使用页面的链接路由的默认值为true.</p>
+<p><b>popstate</b> - 是否绑定到和利用popstate event——默认值为true。</p>
+<p><b>dispatch</b> - 是否基于当前url执行初始路由dispatch,默认值为true。</p>
+<h2 id="Programmatic_Navigation">Programmatic Navigation</h2>
+<p>正如上面提到的,页面将默认自动拦截点击页面上的链接,并试图处理它使用你设置的路线。只有当它不能匹配定义的url与任何路由时将会默认返回浏览器的默认行为。可是有时,你可能想要改变基于其他事件的URL。也许碰巧点击了元素之外的其他链接。或者,如果您正在构建一个搜索页面,您可能希望允许用户分享他们的搜索结果的URL。你可以在你想浏览的页面中调用page的方法:</p>
+<pre><code>$(form).on(<span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>{
+     e.preventDefault();
+      page(<span class="string">'/search?'</span> + form.serialize());
+});
+</code></pre><p>如果你喜欢更明确一点,你可以使用 <code>page.show(path)</code>。</p>
+
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - Apr 9 2015</span><br />
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://kezhi.me"><strong>kezhi</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
     <h1 class="title"><a href="/2015/04/03/mac-dev-setup/">Mac OS X 系统开发设置</a></h1>
   
 
