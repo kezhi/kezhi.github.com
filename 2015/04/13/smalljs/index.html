@@ -102,7 +102,7 @@ Page 提供了一些不同作用的一个page函数：">
     <h1 class="title">Small js</h1>
   
 
-      <time datetime="2015-04-08T17:17:04.000Z"><a href="/2015/04/09/smalljs/">Apr 9 2015</a></time>
+      <time datetime="2015-04-13T12:29:20.000Z"><a href="/2015/04/13/smalljs/">Apr 13 2015</a></time>
       
   </header>
     <div class="entry">
@@ -151,10 +151,21 @@ page(<span class="string">'/about'</span>, <span class="function"><span class="k
       page(<span class="string">'/search?'</span> + form.serialize());
 });
 </code></pre><p>如果你喜欢更明确一点,你可以使用 <code>page.show(path)</code>。</p>
-
+<h2 id="Route_Handler_Chaining">Route Handler Chaining</h2>
+<p>page 的一个很酷的功能是允许路由处理链接，这类似于express的中间件，一个路由定义可以处理多个程序</p>
+<pre><code>page(<span class="string">'user/:id'</span>, loadUser, showUser);
+</code></pre><p>在这里，当导航路径是<code>user/:id</code>时,page 将会调用loadUser函数，当用户加载完成时，它会调用showUser函数来展示它，那它是如何知道用户加载完成了呢,它提供了一个回调函数作为第二个参数—-这就是loadUser可能看起来像:</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">loadUser</span><span class="params">(ctx, next)</span></span>{
+     <span class="keyword">var</span> id = ctx.params.id;
+      $.getJSON(<span class="string">'/user/'</span> + id + <span class="string">'.json'</span>, <span class="function"><span class="keyword">function</span><span class="params">(user)</span></span>{
+        ctx.user = user;
+        next();
+      });
+}
+</code></pre>
 	 
 	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
-<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - Apr 9 2015</span><br />
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - Apr 13 2015</span><br />
 <span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://kezhi.me"><strong>kezhi</strong></a></span>
 </p>
        	 
