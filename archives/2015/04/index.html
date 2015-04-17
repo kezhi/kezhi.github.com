@@ -99,10 +99,10 @@
       
       
   
-    <h1 class="title"><a href="/2015/04/13/smalljs/">Small js</a></h1>
+    <h1 class="title"><a href="/2015/04/17/smalljs/">Small js</a></h1>
   
 
-      <time datetime="2015-04-13T12:29:20.000Z"><a href="/2015/04/13/smalljs/">Apr 13 2015</a></time>
+      <time datetime="2015-04-17T11:47:04.000Z"><a href="/2015/04/17/smalljs/">Apr 17 2015</a></time>
       
   </header>
     <div class="entry">
@@ -162,10 +162,96 @@ page(<span class="string">'/about'</span>, <span class="function"><span class="k
         next();
       });
 }
-</code></pre>
+</code></pre><p>然后，在showUser里你可以通过ctx.user得到user，现在你可以重用loadUser函数，例如，<code>user/:id</code> 编辑路由。</p>
+<h2 id="States">States</h2>
+<p>History API 支持保存状态以及每个历史入口，它允许你缓存信息以及访问过的导航地址，这样当用户导航通过返回按钮返回时，无需重新载入信息，使用户体验更为顺畅，Page通过state属性的context对象暴露出来这些，使上述loadUser函数利用这个缓存，你可以这样写：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">loadUser</span><span class="params">(ctx, next)</span></span>{
+      <span class="keyword">if</span> (ctx.state.user){
+        next();
+      }<span class="keyword">else</span>{
+        <span class="keyword">var</span> id = ctx.params.id;
+           $.getJSON(<span class="string">'/user/'</span> + id + <span class="string">'.json'</span>, <span class="function"><span class="keyword">function</span><span class="params">(user)</span></span>{
+            ctx.state.user = user;
+            ctx.save();  <span class="comment">// saves the state via history.replaceState()</span>
+            next();
+        });
+      }
+}
+</code></pre><h2 id="Putting_It_All_Together">Putting It All Together</h2>
+<p>现在你已经知道关于Page你需要了解的了，我们来构建一个应用程序示例，这个app将会呈现一个最早的Github用户列表，你可以点击一个个人用户获取和他相关的更多详情，后退按钮应该使用缓存无缝的工作，这将使用到的模块有page,superagent,和mustache.</p>
+<pre><code><span class="keyword">var</span> page = <span class="built_in">require</span>(<span class="string">'page'</span>);
+<span class="keyword">var</span> request = <span class="built_in">require</span>(<span class="string">'superagent'</span>);
+<span class="keyword">var</span> mustache = <span class="built_in">require</span>(<span class="string">'mustache'</span>);
+</code></pre><p>下面是定义的路由：</p>
+<pre><code>page(<span class="string">'/'</span>, loadUsers, showUsers);
+page(<span class="string">'/user/:id'</span>, loadUser, showUser);
+</code></pre><p>loadUsers和loadUser的实现看起来就像这个样子，有点像以前的state-caching例子：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">loadUsers</span><span class="params">(ctx, next)</span></span>{
+     <span class="keyword">if</span> (ctx.state.users){
+        <span class="comment">// cache hit!</span>
+        next();
+      }<span class="keyword">else</span>{
+        <span class="comment">// not cached by state, make the request</span>
+        request(<span class="string">'https://api.github.com/users'</span>, <span class="function"><span class="keyword">function</span><span class="params">(reply)</span></span>{
+              <span class="keyword">var</span> users = reply.body;
+              ctx.state.users = users;
+              ctx.save();
+              next();
+        });
+      }
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">loadUser</span><span class="params">(ctx, next)</span></span>{
+    <span class="keyword">if</span> (ctx.state.user){
+        next();
+      }<span class="keyword">else</span>{
+        <span class="keyword">var</span> id = ctx.params.id;
+        request(<span class="string">'https://api.github.com/user/'</span> + id, <span class="function"><span class="keyword">function</span><span class="params">(reply)</span></span>{
+              <span class="keyword">var</span> user = reply.body;
+              ctx.state.user = user;
+              ctx.save();
+              next();
+        });
+      }
+}
+</code></pre><p>使用<code>mustache</code>来渲染页面，我做了如下模板：</p>
+<pre><code>var listTemplate = 
+  '<span class="tag">&lt;<span class="title">h1</span>&gt;</span>Early Github Users<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>\
+  <span class="tag">&lt;<span class="title">ul</span>&gt;</span>\
+    \
+<span class="tag">&lt;<span class="title">li</span>&gt;</span>\
+  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"/user/"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>\
+<span class="tag">&lt;/<span class="title">li</span>&gt;</span>\
+\
+  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>';
+
+var showTemplate = 
+  '<span class="tag">&lt;<span class="title">h1</span>&gt;</span>User <span class="tag">&lt;/<span class="title">h1</span>&gt;</span>\
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span> is user number . \
+  He has  followers, \
+   public repos and writes a blog at\
+  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">""</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>.\
+  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"/"</span>&gt;</span>Back to list<span class="tag">&lt;/<span class="title">a</span>&gt;</span>.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>\
+  ';
+</code></pre><p>showUser和showUsers负责渲染这些模板：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">showUsers</span><span class="params">(ctx)</span></span>{
+      <span class="keyword">var</span> users = ctx.state.users;
+      content.innerHTML = 
+      mustache.render(listTemplate, users);
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">showUser</span><span class="params">(ctx)</span></span>{
+      <span class="keyword">var</span> user = ctx.state.user;
+      content.innerHTML = 
+    mustache.render(showTemplate, user);
+};
+</code></pre><p>最后，我们需要启动路由：</p>
+<pre><code>page.start();
+</code></pre><p>现在，你已经拥有了一个多页的单页应用，如果你想获得这些代码，在github上查看已经模块化成小文件的 <a href="https://github.com/airportyh/page_demo" target="_blank" rel="external">完整的源码</a>，</p>
+
 	 
 	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
-<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - Apr 13 2015</span><br />
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - Apr 17 2015</span><br />
 <span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://kezhi.me"><strong>kezhi</strong></a></span>
 </p>
        	 
