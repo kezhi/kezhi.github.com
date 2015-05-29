@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Small js | kezhi</title>
+  <meta name="author" content="kezhi">
+  
+  <meta name="description" content="PagePage是一个轻量级的用来构建单页应用的客户端路由库，它有一个受Express的启发而来的简单的API，你可以用它构建平滑的用户界面,并且应用程序不同的页面都拥有可链接的url，因为它利用了HTML5 history API
+RoutingPage 提供了一些不同作用的一个page函数：
+v">
+  
+  
+  <meta property="og:title" content="Small js"/>
+  <meta property="og:site_name" content="kezhi"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+   <link rel="apple-touch-icon" href="/icon.png" />
+   <link rel="shortcut icon" href="/favicon.png" >
+   <link rel="alternate" href="http://xxx.xxx/atom.xml" title="kezhi" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="/js/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar" class="alignleft">
+      <div class="navigationBar">
+        <a href="/">kezhi</a>
+      </div>
+    	
+  <nav class="widget" id="menu">
+	<ul>
+    
+      <li class="cell"><a class="next" href="/">Home</a><li>
+    
+      <li class="cell"><a class="next" href="/archives/">Archives</a><li>
+    
+      <li class="cell"><a class="next" href="/about/">About</a><li>
+    
+      <li class="cell"><a class="next" href="/atom.xml">Subscribe</a><li>
+    
+    </ul>
+</nav>
+
+  <div class="widget weibo">
+<iframe width="100%" height="100" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=110&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=0&isWeibo=0&isFans=0&uid=2404477035&verifier=78e1ee4d&colors=ffffff,ffffff,999,000,ecfbfd&dpc=1"></iframe>
+</div>
+
+  
+
+  
+
+    	<footer id="footer" class="inner"><div class="copyright">
+  
+  &copy; 2015 kezhi
+  
+</div>
+
+
+<div style="position:relative; bottom: 23px">
+  <script src="http://s95.cnzz.com/stat.php?id=xxxxxx&web_id=xxxxxx&show=pic1" language="JavaScript">
+  </script>
+</div>
+
+
+</footer>
+    </aside>
+    
+    
+    <div id="hidden-navigationBar" class="navigationBar">
+      <a href="/">kezhi</a>
+    </div>
+    <div id="main-col" class="alignright">
+    <div id="wrapper">
+      
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
+    <h1 class="title">Small js</h1>
+  
+
+      <time datetime="2015-05-29T02:10:41.000Z"><a href="/2015/05/29/smalljs/">May 29 2015</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <h2 id="Page">Page</h2><p>Page是一个轻量级的用来构建单页应用的客户端路由库，它有一个受Express的启发而来的简单的API，<br>你可以用它构建平滑的用户界面,并且应用程序不同的页面都拥有可链接的url，因为它利用了HTML5 history API</p>
+<h2 id="Routing">Routing</h2><p>Page 提供了一些不同作用的一个page函数：</p>
+<pre><code><span class="reserved">var</span> page = <span class="built_in">require</span>(<span class="string">'page'</span>);
+</code></pre><p>第一个作用是指定路由，如果你使用Ruby on Rails或Express或类似的框架,这应该看起来很熟悉:</p>
+<pre><code>page(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+      <span class="comment">// Do something to set up the index page</span>
+});
+
+page(<span class="string">'/about'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+     <span class="comment">// Set up the about page</span>
+});
+</code></pre><p>你的路由可以包含参数,你可以通过上下文判定的参数来处理你的路由</p>
+<pre><code>page(<span class="string">'/user/:id'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>{
+      <span class="keyword">var</span> userId = context.params.id;
+      <span class="built_in">console</span>.log(<span class="string">'Loading details for user'</span>, userId);
+});
+</code></pre><p>你也可以使用通配符来作为参数,在这种情况下,你将需要使用数组索引访问参数:</p>
+<pre><code>page(<span class="string">'/files/*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>{
+      <span class="keyword">var</span> filePath = context.params[<span class="number">0</span>];
+      <span class="built_in">console</span>.log(<span class="string">'Loading file'</span>, filePath);
+});
+</code></pre><p>使用通配符和命名参数的一个关键区别是通配符可以匹配字符“/”,而命名的参数不能。在我们的文件路径示例中,使用通配符时文件路径可以包含任意嵌套的子目录。</p>
+<p>使用通配符的另一个有用的方法是定义一个回退的路由:</p>
+<pre><code>page(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+      <span class="built_in">console</span>.error(<span class="string">'Page not found :('</span>);
+});
+</code></pre><h2 id="Starting_The_Router">Starting The Router</h2><p>一旦你定义了所有的路由,当其他页面访问完毕之后,你需要启动路由,但这一次没有参数:</p>
+<pre><code>page()<span class="comment">;</span>
+</code></pre><p>如果这样写你觉得很奇怪，想要更明确一点，也可以写成：</p>
+<pre><code><span class="tag">page</span><span class="class">.start</span>();
+</code></pre><p>这两个都有一个可选的参数对象,包含以下属性:</p>
+<p><b>click</b> - 是否自动绑定到页面上的点击事件和拦截链接点击和阻止它们使用页面的链接路由的默认值为true.</p>
+<p><b>popstate</b> - 是否绑定到和利用popstate event——默认值为true。</p>
+<p><b>dispatch</b> - 是否基于当前url执行初始路由dispatch,默认值为true。</p>
+<h2 id="Programmatic_Navigation">Programmatic Navigation</h2><p>正如上面提到的,页面将默认自动拦截点击页面上的链接,并试图处理它使用你设置的路线。只有当它不能匹配定义的url与任何路由时将会默认返回浏览器的默认行为。可是有时,你可能想要改变基于其他事件的URL。也许碰巧点击了元素之外的其他链接。或者,如果您正在构建一个搜索页面,您可能希望允许用户分享他们的搜索结果的URL。你可以在你想浏览的页面中调用page的方法:</p>
+<pre><code>$(form).on(<span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{
+     e.preventDefault();
+      page(<span class="string">'/search?'</span> + form.serialize());
+});
+</code></pre><p>如果你喜欢更明确一点,你可以使用 <code>page.show(path)</code>。</p>
+<h2 id="Route_Handler_Chaining">Route Handler Chaining</h2><p>page 的一个很酷的功能是允许路由处理链接，这类似于express的中间件，一个路由定义可以处理多个程序</p>
+<pre><code>page<span class="list">(<span class="quoted">'user/</span><span class="keyword">:id</span>', loadUser, showUser)</span><span class="comment">;</span>
+</code></pre><p>在这里，当导航路径是<code>user/:id</code>时,page 将会调用loadUser函数，当用户加载完成时，它会调用showUser函数来展示它，那它是如何知道用户加载完成了呢,它提供了一个回调函数作为第二个参数—-这就是loadUser可能看起来像:</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">loadUser</span>(<span class="params">ctx, next</span>)</span>{
+     <span class="keyword">var</span> id = ctx.params.id;
+      $.getJSON(<span class="string">'/user/'</span> + id + <span class="string">'.json'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">user</span>)</span>{
+        ctx.user = user;
+        next();
+      });
+}
+</code></pre><p>然后，在showUser里你可以通过ctx.user得到user，现在你可以重用loadUser函数，例如，<code>user/:id</code> 编辑路由。</p>
+<h2 id="States">States</h2><p>History API 支持保存状态以及每个历史入口，它允许你缓存信息以及访问过的导航地址，这样当用户导航通过返回按钮返回时，无需重新载入信息，使用户体验更为顺畅，Page通过state属性的context对象暴露出来这些，使上述loadUser函数利用这个缓存，你可以这样写：</p>
+<pre><code>function <span class="built_in">load</span>User(ctx, next){
+      if (ctx.<span class="keyword">state</span>.<span class="keyword">user</span>){
+        next();
+      }else{
+        var id = ctx.params.id;
+           $.getJSON('/<span class="keyword">user</span>/' + id + '.json', function(<span class="keyword">user</span>){
+            ctx.<span class="keyword">state</span>.<span class="keyword">user</span> = <span class="keyword">user</span>;
+            ctx.save();  // saves the <span class="keyword">state</span> via history.replaceState()
+            next();
+        });
+      }
+}
+</code></pre><h2 id="Putting_It_All_Together">Putting It All Together</h2><p>现在你已经知道关于Page你需要了解的了，我们来构建一个应用程序示例，这个app将会呈现一个最早的Github用户列表，你可以点击一个个人用户获取和他相关的更多详情，后退按钮应该使用缓存无缝的工作，这将使用到的模块有page,superagent,和mustache.</p>
+<pre><code><span class="reserved">var</span> page = <span class="built_in">require</span>(<span class="string">'page'</span>);
+<span class="reserved">var</span> request = <span class="built_in">require</span>(<span class="string">'superagent'</span>);
+<span class="reserved">var</span> mustache = <span class="built_in">require</span>(<span class="string">'mustache'</span>);
+</code></pre><p>下面是定义的路由：</p>
+<pre><code>page<span class="list">(<span class="quoted">'/</span>', loadUsers, showUsers)</span><span class="comment">;</span>
+page<span class="list">(<span class="quoted">'/user/</span><span class="keyword">:id</span>', loadUser, showUser)</span><span class="comment">;</span>
+</code></pre><p>loadUsers和loadUser的实现看起来就像这个样子，有点像以前的state-caching例子：</p>
+<pre><code>function <span class="built_in">load</span>Users(ctx, next){
+     if (ctx.<span class="keyword">state</span>.users){
+        // cache hit!
+        next();
+      }else{
+        // not cached by <span class="keyword">state</span>, make the request
+        request('https://api.github.com/users', function(reply){
+              var users = reply.body;
+              ctx.<span class="keyword">state</span>.users = users;
+              ctx.save();
+              next();
+        });
+      }
+}
+
+function <span class="built_in">load</span>User(ctx, next){
+    if (ctx.<span class="keyword">state</span>.<span class="keyword">user</span>){
+        next();
+      }else{
+        var id = ctx.params.id;
+        request('https://api.github.com/<span class="keyword">user</span>/' + id, function(reply){
+              var <span class="keyword">user</span> = reply.body;
+              ctx.<span class="keyword">state</span>.<span class="keyword">user</span> = <span class="keyword">user</span>;
+              ctx.save();
+              next();
+        });
+      }
+}
+</code></pre><p>使用<code>mustache</code>来渲染页面，我做了如下模板：</p>
+<pre><code>var listTemplate = 
+  '<span class="tag">&lt;<span class="title">h1</span>&gt;</span>Early Github Users<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>\
+  <span class="tag">&lt;<span class="title">ul</span>&gt;</span>\
+    <span class="comment"></span>\
+<span class="tag">&lt;<span class="title">li</span>&gt;</span>\
+  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"/user/"</span>&gt;</span><span class="comment"></span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>\
+<span class="tag">&lt;/<span class="title">li</span>&gt;</span>\
+<span class="comment"></span>\
+  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>';
+
+var showTemplate = 
+  '<span class="tag">&lt;<span class="title">h1</span>&gt;</span>User <span class="comment"></span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>\
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="comment"></span> is user number <span class="comment"></span>. \
+  He has <span class="comment"></span> followers, \
+  <span class="comment"></span> public repos and writes a blog at\
+  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">""</span>&gt;</span><span class="comment"></span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>.\
+  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"/"</span>&gt;</span>Back to list<span class="tag">&lt;/<span class="title">a</span>&gt;</span>.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>\
+  ';
+</code></pre><p>showUser和showUsers负责渲染这些模板：</p>
+<pre><code>function showUsers(ctx){
+      var users = ctx.<span class="keyword">state</span>.users;
+      content.innerHTML = 
+      mustache.render(listTemplate, users);
+}
+
+function showUser(ctx){
+      var <span class="keyword">user</span> = ctx.<span class="keyword">state</span>.<span class="keyword">user</span>;
+      content.innerHTML = 
+    mustache.render(showTemplate, <span class="keyword">user</span>);
+};
+</code></pre><p>最后，我们需要启动路由：</p>
+<pre><code><span class="tag">page</span><span class="class">.start</span>();
+</code></pre><p>现在，你已经拥有了一个多页的单页应用，如果你想获得这些代码，在github上查看已经模块化成小文件的 <a href="https://github.com/airportyh/page_demo" target="_blank" rel="external">完整的源码</a>，</p>
+
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - May 29 2015</span><br />
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://kezhi.me"><strong>kezhi</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+	 
+     		  
+       		
+     		  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
+	<span class="jiathis_txt"></span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=xxxxxx" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+       	 
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2012933" async=""></script>
+</section>
+
+</div>
+    </div>
+    <div class="tabbar" onload="divideTabBar()">
+	
+      <div class="tabbaritem"><a class="next" href="/">Home</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/archives/">Archives</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/about/">About</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/atom.xml">Subscribe</a></div>
+    
+</div>
+
+
+  </div>
+</body>
+</html>
