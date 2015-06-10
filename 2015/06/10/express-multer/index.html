@@ -9,9 +9,12 @@
   <meta name="description" content="安装所需模块
  npm install --save multer
 
-上传部分的html代码
-&amp;lt;form method=&#39;post&#39; action=&#39;/uploadimage&#39; enctype=&#39;multipart/form-data&#39;&amp;gt;
-    &amp;lt;input type=&quot;text">
+用法，在app.js添加以下代码：
+var express = require(&#39;express&#39;)
+var multer  = require(&#39;multer&#39;)
+var app = express()
+
+app.use(mul">
   
   
   <meta property="og:title" content="Express 文件上传 - Multer"/>
@@ -104,7 +107,7 @@
     <h1 class="title">Express 文件上传 - Multer</h1>
   
 
-      <time datetime="2015-05-29T02:10:41.000Z"><a href="/2015/05/29/express-multer/">May 29 2015</a></time>
+      <time datetime="2015-06-10T10:00:47.000Z"><a href="/2015/06/10/express-multer/">Jun 10 2015</a></time>
       
   </header>
     <div class="entry">
@@ -113,15 +116,7 @@
 <li><p>安装所需模块</p>
 <p> <code>npm install --save multer</code></p>
 </li>
-<li><p>上传部分的html代码</p>
-<pre><code>&lt;<span class="tag">form</span> method=<span class="string">'post'</span> action=<span class="string">'/uploadimage'</span> enctype=<span class="string">'multipart/form-data'</span>&gt;
-    &lt;<span class="tag">input</span> type=<span class="string">"text"</span>/&gt;
-    选择图片：&lt;<span class="tag">input</span> type=<span class="string">'file'</span>/&gt;
-    &lt;<span class="tag">input</span> type=<span class="string">'submit'</span> value=<span class="string">'提交'</span>/&gt;
-&lt;/form&gt;
-</code></pre><p>enctype=”multipart/form-data”的作用是设置表单上传文件的正确编码，浏览器用表单提交数据的格式</p>
-</li>
-<li><p>用法</p>
+<li><p>用法，在app.js添加以下代码：</p>
 <pre><code><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)
 <span class="keyword">var</span> multer  = <span class="built_in">require</span>(<span class="string">'multer'</span>)
 <span class="keyword">var</span> app = express()
@@ -140,11 +135,35 @@ app.use(multer({
     });
 });
 </code></pre></li>
+<li><p>上传部分的html代码</p>
+<pre><code>&lt;<span class="tag">form</span> id=<span class="string">'editfile'</span> method=<span class="string">'post'</span> action=<span class="string">'/uploadimage'</span> enctype=<span class="string">'multipart/form-data'</span>&gt;
+    &lt;<span class="tag">input</span> type=<span class="string">"text"</span>/&gt;
+    选择图片：&lt;<span class="tag">input</span> id=<span class="string">'upfile'</span> type=<span class="string">'file'</span>/&gt;
+    &lt;<span class="tag">input</span> type=<span class="string">'submit'</span> value=<span class="string">'提交'</span>/&gt;
+&lt;/form&gt;
+</code></pre><p>enctype=”multipart/form-data”的作用是设置表单上传文件的正确编码，浏览器用表单提交数据的格式</p>
+<p>使用ajax上传：</p>
+</li>
 </ol>
-
+<pre><code>$(<span class="string">'#editfile'</span>).submit(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>{
+    <span class="keyword">var</span> data = <span class="keyword">new</span> FormData();
+    data.append(<span class="string">'file'</span>, $(<span class="string">'#upfile'</span>)[<span class="number">0</span>].files[<span class="number">0</span>]);
+    $.ajax({
+        url: <span class="string">'/uploadimage'</span>,
+        data: data,
+        processData: <span class="literal">false</span>,
+        contentType: <span class="literal">false</span>,
+        type: <span class="string">'POST'</span>,
+        success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{
+            <span class="built_in">console</span>.log(data);   <span class="comment">//返回上传后所在的路径</span>
+        }
+    });
+    e.preventDefault();
+});
+</code></pre>
 	 
 	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
-<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - May 29 2015</span><br />
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - Jun 10 2015</span><br />
 <span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://kezhi.me"><strong>kezhi</strong></a></span>
 </p>
        	 
