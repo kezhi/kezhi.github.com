@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nginx 安装 | kezhi</title>
+  <meta name="author" content="kezhi">
+  
+  <meta name="description" content="➜  ~  ssh root@123.50.222.30
+The authenticity of host ‘123.50.222.30 (123.50.222.30)’ can’t be established.RSA key fingerprint is 16:d5:f2:e6:9b:c8:c2">
+  
+  
+  <meta property="og:title" content="nginx 安装"/>
+  <meta property="og:site_name" content="kezhi"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+   <link rel="apple-touch-icon" href="/icon.png" />
+   <link rel="shortcut icon" href="/favicon.png" >
+   <link rel="alternate" href="http://xxx.xxx/atom.xml" title="kezhi" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="/js/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar" class="alignleft">
+      <div class="navigationBar">
+        <a href="/">kezhi</a>
+      </div>
+    	
+  <nav class="widget" id="menu">
+	<ul>
+    
+      <li class="cell"><a class="next" href="/">Home</a><li>
+    
+      <li class="cell"><a class="next" href="/archives/">Archives</a><li>
+    
+      <li class="cell"><a class="next" href="/about/">About</a><li>
+    
+      <li class="cell"><a class="next" href="/atom.xml">Subscribe</a><li>
+    
+    </ul>
+</nav>
+
+  <div class="widget weibo">
+<iframe width="100%" height="100" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=110&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=0&isWeibo=0&isFans=0&uid=2404477035&verifier=78e1ee4d&colors=ffffff,ffffff,999,000,ecfbfd&dpc=1"></iframe>
+</div>
+
+  
+
+  
+
+    	<footer id="footer" class="inner"><div class="copyright">
+  
+  &copy; 2015 kezhi
+  
+</div>
+
+
+<div style="position:relative; bottom: 23px">
+  <script src="http://s95.cnzz.com/stat.php?id=xxxxxx&web_id=xxxxxx&show=pic1" language="JavaScript">
+  </script>
+</div>
+
+
+</footer>
+    </aside>
+    
+    
+    <div id="hidden-navigationBar" class="navigationBar">
+      <a href="/">kezhi</a>
+    </div>
+    <div id="main-col" class="alignright">
+    <div id="wrapper">
+      
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
+    <h1 class="title">nginx 安装</h1>
+  
+
+      <time datetime="2015-08-01T03:14:44.000Z"><a href="/2015/08/01/deploy-server/">Aug 1 2015</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <p>➜  ~  ssh root@123.50.222.30</p>
+<p>The authenticity of host ‘123.50.222.30 (123.50.222.30)’ can’t be established.<br>RSA key fingerprint is 16:d5:f2:e6:9b:c8:c2:32:ca:22:35:f8:f3:64:a7:e1.<br>Are you sure you want to continue connecting (yes/no)? yes<br>Warning: Permanently added ‘123.57.222.30’ (RSA) to the list of known hosts.<br>root@123.50.222.30’s password: 111111</p>
+<p>Last login: Wed Jun 10 17:33:35 2015 from 117.10.146.80</p>
+<p>Welcome to aliyun Elastic Compute Service!</p>
+<p>[root@iZ25xk7uei1Z ~]# useradd deploy      //添加用户<br>[root@iZ25xk7uei1Z ~]# ls /home            //查看用户<br>deploy<br>[root@iZ25xk7uei1Z ~]# passwd deploy       //添加密码</p>
+<p>更改用户 deploy 的密码 。</p>
+<p>新的 密码：111111        </p>
+<p>重新输入新的 密码：111111</p>
+<p>passwd：所有的身份验证令牌已经成功更新。</p>
+<p>[root@iZ25xk7uei1Z ~]# su - deploy            //从root用户切换到普通用户，切换至root用户: su</p>
+<p>$ yum info nginx             //查看nginx信息<br>$ sudo yum install nginx     //安装nginx<br>$ sudo service nginx start        //启动服务<br>$ sudo service nginx status        //查看启动状态<br>vi /etc/nginx/nginx.conf       //查看配置文件</p>
+<p>新建目录并进入</p>
+<p>mkdir downloads &amp;&amp; cd downloads</p>
+<p>下载mongodb</p>
+<p>wget <a href="https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.3.tgz" target="_blank" rel="external">https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.3.tgz</a></p>
+<p>解压：</p>
+<p>tar -xzf mongodb-linux-x86_64-3.0.3.tgz</p>
+<p>重命名</p>
+<p>mv mongodb-linux-x86_64-3.0.3 mongodb</p>
+<p>进入bin目录，查看文件</p>
+<p>cd bin/</p>
+<p>$ ls</p>
+<p>bsondump  mongo  mongod  mongodump  mongoexport  mongofiles  mongoimport  mongooplog  mongoperf  mongorestore  mongos  mongostat  mongotop</p>
+<p>新建一个配置文件并写入配置信息</p>
+<p>vi mongodb.conf</p>
+<p>配置信息如下：</p>
+<p>dbpath = /home/deploy/downloads/mongodb/data/test/db #数据文件存放目录<br>logpath = /home/deploy/downloads/mongodb/data/test/logs/mongodb.log #日志文件存放目录<br>port = 27017  #端口<br>fork = true  #以守护程序的方式启用，即在后台运行<br>nohttpinterface = true</p>
+<p>在mongodb目录下创建目录</p>
+<p>/home/deploy/downloads/mongodb/data/test/db</p>
+<p>创建日志文件目录</p>
+<p>/home/deploy/downloads/mongodb/data/test/logs/</p>
+<p>在bin目录下启动<br>./mongod —config mongodb.conf</p>
+<p>注意事项<br>bin/mongodb.conf中的路径一定要和实际的路径对应<br>配置文件中，dbpath是一个目录路径，logpath是一个路径及日志文件</p>
+<p>安装nvm ：</p>
+<p>$ wget -qO- <a href="https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh" target="_blank" rel="external">https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh</a> | bash</p>
+<p>使命令生效：</p>
+<p>source ~/.nvm/nvm.sh</p>
+<p>查看 node版本：</p>
+<p><code>nvm ls-remote</code></p>
+<p>安装所需版本：</p>
+<p><code>nvm install v0.12.4</code></p>
+<p>查看node版本：</p>
+<p><code>node -v</code></p>
+<p>v2.2.1 </p>
+<p>安装pm2:</p>
+<p><code>npm install -g pm2</code></p>
+<p>运行pm2</p>
+<p><code>pm2 start app.js</code></p>
+<p>软链接：</p>
+<p><code>ln -s a b</code>   // a 就是源文件，b是链接文件名,其作用是当进入b目录，实际上是链接进入了a目录</p>
+
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - Aug 1 2015</span><br />
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://kezhi.me"><strong>kezhi</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+	 
+     		  
+       		
+     		  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
+	<span class="jiathis_txt"></span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=xxxxxx" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+       	 
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2012933" async=""></script>
+</section>
+
+</div>
+    </div>
+    <div class="tabbar" onload="divideTabBar()">
+	
+      <div class="tabbaritem"><a class="next" href="/">Home</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/archives/">Archives</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/about/">About</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/atom.xml">Subscribe</a></div>
+    
+</div>
+
+
+  </div>
+</body>
+</html>
