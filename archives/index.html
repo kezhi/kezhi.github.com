@@ -99,6 +99,96 @@
       
       
   
+    <h1 class="title"><a href="/2015/08/06/populate/">populate</a></h1>
+  
+
+      <time datetime="2015-08-06T04:02:48.000Z"><a href="/2015/08/06/populate/">Aug 6 2015</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <p>populate方法可以通过一个Schema使用ref引用另一个Schema建立起表和表之间的关联，<br>并使用ID定义外键约束便于查询关联的表中相关内容。</p>
+<pre><code><span class="keyword">var</span> <span class="type">PostSchema</span> = <span class="keyword">new</span> <span class="type">Schema</span>({
+  title: {
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">String</span>,
+    required: <span class="literal">true</span>
+  },
+  content: {
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">String</span>
+  },
+  create_by:{
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">Schema</span>.<span class="type">ObjectId</span>,
+    ref: <span class="symbol">'MemberSchem</span>a'        <span class="comment">//关联MemberSchema表</span>
+  },
+  create_at: {
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">Date</span>,
+    <span class="keyword">default</span>: <span class="type">Date</span>.now
+  }
+});
+</code></pre><p>保存外键ID用于建立关系：</p>
+<pre><code>Post.create({
+    title:<span class="string">'1111111111'</span>,
+    content:<span class="string">'ffdddsfdsfdsfsd'</span>,
+    create_by:ObjectId
+},<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>{
+    <span class="keyword">if</span>(err){
+        <span class="built_in">console</span>.log(err)
+    }<span class="keyword">else</span>{
+        <span class="built_in">console</span>.dir(data);
+          process.exit();
+    }
+})
+</code></pre><p>使用populate方法查询：</p>
+<pre><code>Post.find<span class="params">({<span class="string">"_id"</span>:mongoose.Types.ObjectId<span class="params">(<span class="string">"55c2d27dcf2730a80ab7407f"</span>)</span>})</span>.populate<span class="params">('create_by')</span>.exec<span class="params">(function<span class="params">(err,data)</span>{
+if<span class="params">(err)</span>{
+    console.log<span class="params">(err)</span>
+}else{
+    console.dir<span class="params">(data)</span>;
+         process.exit<span class="params">()</span>;
+}
+})</span>;
+</code></pre>
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - Aug 6 2015</span><br />
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://kezhi.me"><strong>kezhi</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
     <h1 class="title"><a href="/2015/08/01/deploy-server/">nginx 安装</a></h1>
   
 
