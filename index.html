@@ -25,34 +25,41 @@
 
 <body>
   <div id="content" class="inner">
-    <aside id="sidebar" class="alignleft">
-      <div class="navigationBar">
-        <a href="/">kezhi</a>
-      </div>
-    	
+
+        <aside id="sidebar" class="alignleft">
+            <div class="aside-bar">
+                <div class="navigationBar">
+                    <a href="/">kezhi</a>
+                </div>
+                
   <nav class="widget" id="menu">
 	<ul>
     
-      <li class="cell"><a class="next" href="/">Home</a><li>
+      <!--<li class="cell"><a class="next" href="/">Home</a><li>-->
     
-      <li class="cell"><a class="next" href="/archives/">Archives</a><li>
+      <!--<li class="cell"><a class="next" href="/archives/">Archives</a><li>-->
     
-      <li class="cell"><a class="next" href="/about/">About</a><li>
+      <!--<li class="cell"><a class="next" href="/about/">About</a><li>-->
     
-      <li class="cell"><a class="next" href="/atom.xml">Subscribe</a><li>
+      <!--<li class="cell"><a class="next" href="/atom.xml">Subscribe</a><li>-->
     
+        <li class="cell"><a class="next" href="/"><i class="fa icon-home"></i></a><li>
+        <li class="cell"><a class="next" href="/archives"><i class="fa icon-archive"></i></a><li>
+        <li class="cell"><a class="next" href="/about"><i class="fa icon-about"></i></a><li>
     </ul>
 </nav>
 
-  <div class="widget weibo">
+  <!--
+<div class="widget weibo">
 <iframe width="100%" height="100" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=110&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=0&isWeibo=0&isFans=0&uid=2404477035&verifier=78e1ee4d&colors=ffffff,ffffff,999,000,ecfbfd&dpc=1"></iframe>
-</div>
+</div>-->
+
 
   
 
   
 
-    	<footer id="footer" class="inner"><div class="copyright">
+                <footer id="footer" class="inner"><div class="copyright">
   
   &copy; 2015 kezhi
   
@@ -66,15 +73,70 @@
 
 
 </footer>
-    </aside>
-    
+            </div>
+        </aside>
+
     
     <div id="hidden-navigationBar" class="navigationBar">
       <a href="/">kezhi</a>
     </div>
-    <div id="main-col" class="alignright">
+    <div id="main-col" class="alignleft">
     <div id="wrapper">
       
+  
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/22/comand/"></a></h1>
+  
+
+      <time datetime="2015-08-22T04:15:50.000Z"><a href="/2015/08/22/comand/">Aug 22 2015</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <p>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php55.plist</p>
+<p>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.php55.plist</p>
+<p>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist</p>
+<p>sudo nginx<br>sudo nginx -s stop<br>sudo nginx -s restart<br>sudo nginx -s reload</p>
+
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - Aug 22 2015</span><br />
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://kezhi.me"><strong>kezhi</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   
 <article class="post">
   
@@ -463,67 +525,6 @@ app.use(multer({
       
       
   
-    <h1 class="title"><a href="/2015/05/29/supervisor/">node supervisor</a></h1>
-  
-
-      <time datetime="2015-05-29T02:10:41.000Z"><a href="/2015/05/29/supervisor/">May 29 2015</a></time>
-      
-  </header>
-    <div class="entry">
-      
-        <h2 id="supervisor">supervisor</h2><p>supervisor 是node开发工具，node应用修改源码以后，需要重启node，使用supervisor后<br>它会监视文件的改变，然后自动重新启动node</p>
-<h3 id="supervisor用法">supervisor用法</h3><ol>
-<li><p>使用 npm 安装 supervisor</p>
-<p> <code>npm install supervisor -g</code></p>
-<p> 如出现权限错误，使用 </p>
-<p> <code>sudo npm install supervisor -g</code></p>
-</li>
-<li><p>使用 supervisor 命令启动 app.js:</p>
-<p> <code>supervisor app.js</code> </p>
-</li>
-</ol>
-
-	 
-	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
-<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/2404477035/profile?topnav=1&amp;wvr=6"><strong>uniquekezhi</strong></a> - May 29 2015</span><br />
-<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://kezhi.me"><strong>kezhi</strong></a></span>
-</p>
-       	 
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
-      
-      
-  
     <h1 class="title"><a href="/2015/05/29/smalljs/">Small js</a></h1>
   
 
@@ -708,18 +709,25 @@ function showUser(ctx){
       
       
   
-    <h1 class="title"><a href="/2015/05/29/mac-dev-setup/">Mac OS X 系统开发设置</a></h1>
+    <h1 class="title"><a href="/2015/05/29/supervisor/">node supervisor</a></h1>
   
 
-      <time datetime="2015-05-29T02:10:41.000Z"><a href="/2015/05/29/mac-dev-setup/">May 29 2015</a></time>
+      <time datetime="2015-05-29T02:10:41.000Z"><a href="/2015/05/29/supervisor/">May 29 2015</a></time>
       
   </header>
     <div class="entry">
       
-        <p>本文讲述我是如何在一台新的MacBook或iMac上设置我的开发环境的,我们将设置Node (JavaScript), Python, 和 Ruby环境，主要用于JavaScript和Python开发，即使你不用这三个中的任何一个来开发，把其中的任何一个当成命令行工具来使用也是不错的，如果你阅读并按照这些步骤来做了,随时给我发送任何反馈或评论。</p>
-<p>此文档假设你刚开始使用Mac。下面的步骤在OS X Mountain Lion上进行了测试。如果你有任何意见或建议,请在Twitter上给我留言!</p>
-<h2 id="系统更新">系统更新</h2><p>你需要做的第一件事,实际上在任何操作系统首先要做的都是,更新系统 :<br>屏幕左上角苹果图标 &gt; 软件更新</p>
-<h2 id="系统设置">系统设置</h2><p>如果这是一台新电脑，我喜欢对系统首选项做一些调整。是否按照这些来做这取决于你的个人喜好。<br>屏幕左上角苹果图标 &gt; 系统设置:<br>·触控板&gt;点击<br>·键盘&gt;键重复&gt;快(向右)<br>·键盘&gt;延时直到重复&gt;短(向右)<br>·Dock &gt;自动隐藏和显示Dock</p>
+        <h2 id="supervisor">supervisor</h2><p>supervisor 是node开发工具，node应用修改源码以后，需要重启node，使用supervisor后<br>它会监视文件的改变，然后自动重新启动node</p>
+<h3 id="supervisor用法">supervisor用法</h3><ol>
+<li><p>使用 npm 安装 supervisor</p>
+<p> <code>npm install supervisor -g</code></p>
+<p> 如出现权限错误，使用 </p>
+<p> <code>sudo npm install supervisor -g</code></p>
+</li>
+<li><p>使用 supervisor 命令启动 app.js:</p>
+<p> <code>supervisor app.js</code> </p>
+</li>
+</ol>
 
 	 
 	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
@@ -972,6 +980,8 @@ gulp.task(<span class="string">'default'</span>, [<span class="string">'compile_
 
 <nav id="pagination">
   
+  
+    <a href="/page/2/" class="alignright next">下一页</a>
   
 </nav></div>
     </div>
