@@ -64,14 +64,14 @@ hr {
 }
 a {
   text-decoration: none;
-  color: #d00;
+  color: #f49484;
 }
 a:hover {
   text-decoration: underline;
 }
 .navigationBar {
   text-align: center;
-  width: 280px;
+/*width 280px*/
   height: 44px;
   line-height: 44px;
   background: rgba(255,255,255,0.9);
@@ -85,7 +85,7 @@ a:hover {
   color: #000;
 }
 .navigationBar a:hover {
-  color: #d00;
+  color: #f49484;
   text-decoration: none;
 }
 .alignleft {
@@ -115,11 +115,12 @@ a:hover {
 }
 #main-col {
   width: 900px;
+  margin-left: 400px;
 }
 @media screen and (max-width: 1260px) {
   #main-col {
     width: 100%;
-    margin-left: -280px;
+    margin-left: 400px;
   }
 }
 #hidden-navigationBar {
@@ -138,7 +139,7 @@ a:hover {
 }
 @media screen and (max-width: 1260px) {
   #wrapper {
-    margin-left: 280px;
+    margin-left: 400px;
   }
 }
 @media screen and (max-width: 900px) {
@@ -146,6 +147,13 @@ a:hover {
     margin: 0 0 60px 0;
     padding: 20px 0;
   }
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/fontawesome-webfont.eot?v=4.4.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format('embedded-opentype'), url("../fonts/fontawesome-webfont.woff2?v=4.4.0") format('woff2'), url("../fonts/fontawesome-webfont.woff?v=4.4.0") format('woff'), url("../fonts/fontawesome-webfont.ttf?v=4.4.0") format('truetype'), url("../fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 #header {
   position: fixed;
@@ -161,7 +169,7 @@ a:hover {
   color: #000;
 }
 #header a:hover {
-  color: #d00;
+  color: #f49484;
   text-decoration: none;
 }
 #header h1 {
@@ -196,14 +204,14 @@ a:hover {
 }
 @media screen and (max-width: 900px) {
   #header #main-nav strong:hover {
-    border: 1px solid #d00;
+    border: 1px solid #f49484;
     -webkit-border-radius: 5px;
     border-radius: 5px;
   }
 }
 .sideWidth {
   display: inline-block;
-  width: 280px;
+  width: 400px;
   text-align: center;
   border-right: 1px solid #c6c6c8;
 }
@@ -521,7 +529,7 @@ article footer .addthis a {
   color: #1e1e1e;
 }
 article footer .addthis a:hover {
-  color: #d00;
+  color: #f49484;
 }
 article footer a:hover {
   color: #1e1e1e;
@@ -551,7 +559,7 @@ article footer .tags a {
 }
 article footer .categories a:hover,
 article footer .tags a:hover {
-  color: #d00;
+  color: #f49484;
 }
 article footer .categories:before,
 article footer .tags:before {
@@ -629,13 +637,20 @@ article footer .tags:before {
   margin-bottom: 0;
   border-bottom-style: none;
 }
+.aside-bar {
+  width: 45px;
+  height: 100%;
+}
 #sidebar {
   display: block;
   overflow: scroll;
-  background: #f5f5f5;
-  border-right: 1px solid #c8c8c8;
+  background: url("../img/siderbg.jpg") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+/*border-right 1px solid rgb(200, 200, 200)*/
   height: 100%;
-  width: 280px;
+  width: 400px;
   line-height: 1.8em;
   position: fixed;
   margin: 0;
@@ -649,35 +664,51 @@ article footer .tags:before {
   border-bottom-style: none;
 }
 #sidebar #menu .cell {
-  height: 44px;
-  line-height: 44px;
-  padding: 0 20px;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
   font-family: Electrolize, sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: normal;
-  border-bottom: 1px solid #f0f0f0;
+/*border-bottom 1px solid rgb(240, 240, 240)*/
 }
 #sidebar #menu .cell:hover {
-  background: #d00;
+  background: #f49484;
 }
 #sidebar #menu .cell:hover a {
   color: #fff;
 }
 #sidebar #menu .cell a {
   display: block;
-  color: #1e1e1e;
+  color: #999;
+/*&:before
+          color #fff
+          content "\f00a"
+          float right
+          font-family font-icon*/
 }
 #sidebar #menu .cell a:hover {
   text-decoration: none;
 }
-#sidebar #menu .cell a:after {
-  color: #ddd;
-  content: '\f054';
-  float: right;
-  font-family: FontAwesome;
+#sidebar .fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+#sidebar .icon-home:before {
+  content: "\f015";
+}
+#sidebar .icon-archive:before {
+  content: "\f00a";
+}
+#sidebar .icon-about:before {
+  content: "\f007";
 }
 #sidebar .widget {
-  background: #fff;
+  background: rgba(0,0,0,0.8);
+  height: 100%;
   margin-bottom: 30px;
   word-wrap: break-word;
   border-top: 1px solid #e3e3e5;
@@ -762,7 +793,7 @@ article footer .tags:before {
   color: #646464;
 }
 #sidebar .tagcloud a:hover {
-  color: #d00;
+  color: #f49484;
 }
 .copyright {
   font-size: 13px;
@@ -803,7 +834,7 @@ article footer .tags:before {
   text-decoration: none;
 }
 #footer {
-  width: 280px;
+  width: 400px;
   color: #d00;
   margin-bottom: 50px;
   font: 0.9em/1.6 Galdeano, "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -844,10 +875,10 @@ article footer .tags:before {
   font-size: 100%;
 }
 .entry .gist .gist-file .gist-meta a {
-  color: #d00;
+  color: #f49484;
 }
 .entry .gist .gist-file .gist-meta a:visited {
-  color: #d00;
+  color: #f49484;
 }
 figure.highlight {
   background: #eee;
