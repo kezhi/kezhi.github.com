@@ -233,7 +233,7 @@ a {
   margin: 3px;
 }
 #container .left-col {
-  background: #fff;
+  background: url("../img/siderbg.jpg");
   width: 300px;
   position: fixed;
   opacity: 1;
@@ -480,9 +480,10 @@ a {
 }
 #header {
   width: 100%;
+  text-shadow: -1px 0 0 rgba(0,0,0,0.75);
 }
 #header a {
-  color: #696969;
+  color: #fff;
 }
 #header a:hover {
   color: #b0a0aa;
@@ -557,6 +558,7 @@ a {
   overflow: hidden;
   min-height: 500px;
   font-size: 14px;
+  color: #fff;
 }
 #header .switch-area .switch-wrap {
   -webkit-transition: -webkit-transform 0.3s ease-in;
@@ -976,8 +978,7 @@ a {
 .article-entry li code {
   padding: 1px 3px;
   margin: 0 3px;
-  background: #ddd;
-  border: 1px solid #ccc;
+  background: #fdf6e3;
   font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
   word-wrap: break-word;
   font-size: 14px;
@@ -1463,7 +1464,7 @@ a {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #272822;
+  background: #fdf6e3;
   margin: 10px 0;
   padding: 10px 10px;
   overflow: auto;
@@ -1486,13 +1487,13 @@ a {
   border: none;
 }
 .article-entry pre {
-  color: #fff;
+  color: #657b83;
 }
 .article-entry pre code {
   background: none;
   text-shadow: none;
   padding: 0;
-  color: #fff;
+  color: #657b83;
 }
 .article-entry .highlight pre {
   border: none;
@@ -1540,7 +1541,7 @@ a {
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #272822;
+  background: #fdf6e3;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1566,7 +1567,7 @@ a {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #272822;
+  background: #fdf6e3;
   color: highlight-comment;
   font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 0 0;
@@ -1593,7 +1594,7 @@ pre .tag,
 pre .doctype,
 pre .params,
 pre .function {
-  color: #fff;
+  color: #657b83;
 }
 pre .css ~ * .tag,
 pre .title,
@@ -1601,25 +1602,25 @@ pre .at_rule,
 pre .at_rule .keyword,
 pre .preprocessor,
 pre .preprocessor .keyword {
-  color: #f92672;
+  color: #859900;
 }
 pre .attribute,
 pre .built_in,
 pre .class,
 pre .css ~ * .class,
 pre .function .title {
-  color: #a6e22e;
+  color: #b58900;
 }
 pre .value,
 pre .string {
-  color: #e6db74;
+  color: #859900;
 }
 pre .number {
   color: #7163d7;
 }
 pre .id,
 pre .css ~ * .id {
-  color: #fd971f;
+  color: #268bd2;
 }
 #footer {
   font-size: 12px;
