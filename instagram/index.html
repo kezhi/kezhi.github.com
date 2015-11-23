@@ -3,48 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Express 文件上传 - Multer | zhi.ke</title>
+  <title>instagram | zhi.ke</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装所需模块
- npm install --save multer
+  <meta name="description" content="layout: postslug: “instagram”title: “相册”
+noDate: “true”&amp;lt;!-- 
+    图片来自instagram，正在加载中…
 
-用法，在app.js添加以下代码：
-var express = require(&apos;express&apos;)
-var multer  = require(&apos;multer&apos;)
-var app = express()
 
-app.use(multer({
-      dest: &apos;./uploads/&apos;,
-       rename: fun">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Express 文件上传 - Multer">
-<meta property="og:url" content="http://kezhi.me/2015/06/10/express-multer/index.html">
+ --&amp;gt;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="instagram">
+<meta property="og:url" content="http://kezhi.me/instagram/index.html">
 <meta property="og:site_name" content="zhi.ke">
-<meta property="og:description" content="安装所需模块
- npm install --save multer
+<meta property="og:description" content="layout: postslug: “instagram”title: “相册”
+noDate: “true”&amp;lt;!-- 
+    图片来自instagram，正在加载中…
 
-用法，在app.js添加以下代码：
-var express = require(&apos;express&apos;)
-var multer  = require(&apos;multer&apos;)
-var app = express()
 
-app.use(multer({
-      dest: &apos;./uploads/&apos;,
-       rename: fun">
-<meta property="og:updated_time" content="2015-06-10T10:00:47.000Z">
+ --&amp;gt;">
+<meta property="og:updated_time" content="2015-11-05T03:42:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Express 文件上传 - Multer">
-<meta name="twitter:description" content="安装所需模块
- npm install --save multer
+<meta name="twitter:title" content="instagram">
+<meta name="twitter:description" content="layout: postslug: “instagram”title: “相册”
+noDate: “true”&amp;lt;!-- 
+    图片来自instagram，正在加载中…
 
-用法，在app.js添加以下代码：
-var express = require(&apos;express&apos;)
-var multer  = require(&apos;multer&apos;)
-var app = express()
 
-app.use(multer({
-      dest: &apos;./uploads/&apos;,
-       rename: fun">
+ --&amp;gt;">
   
     <link rel="alternative" href="/atom.xml" title="zhi.ke" type="application/atom+xml">
   
@@ -200,11 +185,11 @@ app.use(multer({
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-express-multer" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/06/10/express-multer/" class="article-date">
-  	<time datetime="2015-06-10T10:00:47.000Z" itemprop="datePublished">Jun 10 2015</time>
+      <a href="/instagram/index.html" class="article-date">
+  	<time datetime="2015-11-04T06:04:32.000Z" itemprop="datePublished">Nov 4 2015</time>
 </a>
     </div>
   
@@ -217,7 +202,7 @@ app.use(multer({
         
   
     <h1 class="article-title" itemprop="name">
-      Express 文件上传 - Multer
+      instagram
     </h1>
   
 
@@ -233,80 +218,18 @@ app.use(multer({
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>安装所需模块</p>
-<p> <code>npm install --save multer</code></p>
-</li>
-<li><p>用法，在app.js添加以下代码：</p>
-<pre><code><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)
-<span class="keyword">var</span> multer  = <span class="built_in">require</span>(<span class="string">'multer'</span>)
-<span class="keyword">var</span> app = express()
-
-app.use(multer({
-      dest: <span class="string">'./uploads/'</span>,
-       rename: <span class="function"><span class="keyword">function</span> (<span class="params">fieldname, filename</span>) </span>{
-            <span class="keyword">return</span> filename.replace(<span class="regexp">/\W+/g</span>, <span class="string">'-'</span>).toLowerCase() + <span class="built_in">Date</span>.now()
-      }
-}))
-</code></pre></li>
-<li><p>路由模块</p>
-<pre><code><span class="tag">router</span><span class="class">.post</span>(<span class="string">'/uploadimage'</span>,<span class="function">function</span>(req,res){
-    <span class="tag">res</span><span class="class">.status</span>(<span class="number">200</span>)<span class="class">.json</span>({
-        <span class="attribute">file</span>:req.files
-    });
-});
-</code></pre></li>
-<li><p>上传部分的html代码</p>
-<pre><code>&lt;<span class="tag">form</span> id=<span class="string">'editfile'</span> method=<span class="string">'post'</span> action=<span class="string">'/uploadimage'</span> enctype=<span class="string">'multipart/form-data'</span>&gt;
-    &lt;<span class="tag">input</span> type=<span class="string">"text"</span>/&gt;
-    选择图片：&lt;<span class="tag">input</span> id=<span class="string">'upfile'</span> type=<span class="string">'file'</span>/&gt;
-    &lt;<span class="tag">input</span> type=<span class="string">'submit'</span> value=<span class="string">'提交'</span>/&gt;
-&lt;/form&gt;
-</code></pre><p>enctype=”multipart/form-data”的作用是设置表单上传文件的正确编码，浏览器用表单提交数据的格式</p>
-<p>使用ajax上传：</p>
-</li>
-</ol>
-<pre><code>$(<span class="string">'#editfile'</span>).submit(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>{
-    <span class="keyword">var</span> data = <span class="keyword">new</span> FormData();
-    data.append(<span class="string">'file'</span>, $(<span class="string">'#upfile'</span>)[<span class="number">0</span>].files[<span class="number">0</span>]);
-    $.ajax({
-        url: <span class="string">'/uploadimage'</span>,
-        data: data,
-        processData: <span class="literal">false</span>,
-        contentType: <span class="literal">false</span>,
-        type: <span class="string">'POST'</span>,
-        success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{
-            <span class="built_in">console</span>.log(data);   <span class="comment">//返回上传后所在的路径</span>
-        }
-    });
-    e.preventDefault();
-});
-</code></pre>
+        <p>layout: post<br>slug: “instagram”<br>title: “相册”</p>
+<h2 id="noDate:_“true”">noDate: “true”</h2><!-- <div class="instagram" data-client-id="956dd096b6e5496aba6662165b9b8443" data-user-id="438522285">
+    <a href="http://instagram.com/litten225" target="_blank" class="open-ins">图片来自instagram，正在加载中…</a>
+</div>
+<script src="/js/jquery.lazyload.js"></script>
+<script src="/js/instagram.js"></script> -->
       
     </div>
     
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/2015/08/01/deploy-server/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          nginx 安装
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/06/02/node-mongoose/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">nodejs-mongoose</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
   
 </article>
 
@@ -330,7 +253,7 @@ app.use(multer({
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="express-multer" data-title="Express 文件上传 - Multer" data-url="http://kezhi.me/2015/06/10/express-multer/"></div>
+	<div class="ds-thread" data-thread-key="undefined" data-title="instagram" data-url="http://kezhi.me/instagram/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -374,7 +297,7 @@ app.use(multer({
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

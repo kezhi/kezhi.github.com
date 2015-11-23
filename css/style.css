@@ -248,7 +248,7 @@ a {
   height: 180px;
   background-color: #000;
   position: absolute;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 #container .left-col .intrude-less {
   width: 76%;
@@ -467,6 +467,12 @@ a {
   #container #footer .footer-right {
     float: initial;
   }
+  #container #header .header-subtitle {
+    color: #999;
+  }
+  #container #header .header-menu li a {
+    color: #696969;
+  }
 }
 .header-author {
   text-align: center;
@@ -522,7 +528,7 @@ a {
 }
 #header .header-subtitle {
   text-align: center;
-  color: #999;
+  color: #fff;
   font-size: 14px;
   line-height: 25px;
   overflow: hidden;
@@ -970,6 +976,7 @@ a {
   line-height: 1.8em;
   padding-right: 30px;
   padding-left: 30px;
+  word-break: break-all;
 }
 .article-entry p {
   margin-top: 10px;
