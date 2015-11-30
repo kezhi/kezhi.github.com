@@ -175,7 +175,7 @@
   
     <div class="article-meta">
       <a href="/2015/11/30/angularjs-filter/" class="article-date">
-  	<time datetime="2015-11-30T02:56:54.000Z" itemprop="datePublished">Nov 30 2015</time>
+  	<time datetime="2015-11-30T03:02:08.000Z" itemprop="datePublished">Nov 30 2015</time>
 </a>
     </div>
   
@@ -199,8 +199,24 @@
       
         <ol>
 <li><p>uppercase：字符串全部大写字符显示：</p>
-<pre><code><span class="command">\{</span><span class="command">\{</span> name | uppercase <span class="command">\}</span><span class="command">\}</span>
-</code></pre></li>
+<p> <code>\{\{ name | uppercase \}\}</code></p>
+</li>
+<li><p>lowercase:字符串全部小写字符显示</p>
+<p> <code>\{\{ Name | lowercase \}\}</code></p>
+</li>
+<li><p>number: 数字格式化</p>
+<p> <code>\{\{ 1234567890 | number \}\}  1,234,567,890</code></p>
+<p> 格式化数字到一位小数</p>
+<p> <code>\{\{ 1.234567 | number:1 \}\}  1.2</code></p>
+</li>
+<li><p>currency:把数字格式化成货币，默认美元符</p>
+<p> <code>\{\{ 123 | currency \}\}  $123.00</code></p>
+<p> 格式化成人民币符</p>
+<p> <code>\{\{ 123 | currency:&#39;￥&#39;\}\}  ￥123.00</code></p>
+</li>
+<li><p>limitTo: 根据传递的参数值来生成新的数组或字符串，参数值为整数，从开头截取，参数为负值，从最后开始截取</p>
+<p> <code>\{\{ &quot;hello world&quot; | limitTo:5 \}\}  hello</code></p>
+</li>
 </ol>
 
       
