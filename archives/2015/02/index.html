@@ -143,60 +143,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-mac-dev-setup" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/25/mac-dev-setup/">Mac OS X 系统开发设置</a>
-    </h1>
-  
-
-        
-        <a href="/2015/02/25/mac-dev-setup/" class="archive-article-date">
-  	<time datetime="2015-02-25T10:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>Feb 25 2015</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文讲述我是如何在一台新的MacBook或iMac上设置我的开发环境的,我们将设置Node (JavaScript), Python, 和 Ruby环境，主要用于JavaScript和Python开发，即使你不用这三个中的任何一个来开发，把其中的任何一个当成命令行工具来使用也是不错的，如果你阅读并按照这些步骤来做了,随时给我发送任何反馈或评论。</p>
-<p>此文档假设你刚开始使用Mac。下面的步骤在OS X Mountain Lion上进行了测试。如果你有任何意见或建议,请在Twitter上给我留言!</p>
-<h2 id="系统更新">系统更新</h2><p>你需要做的第一件事,实际上在任何操作系统首先要做的都是,更新系统 :<br>屏幕左上角苹果图标 &gt; 软件更新</p>
-<h2 id="系统设置">系统设置</h2><p>如果这是一台新电脑，我喜欢对系统首选项做一些调整。是否按照这些来做这取决于你的个人喜好。<br>屏幕左上角苹果图标 &gt; 系统设置:<br>·触控板&gt;点击<br>·键盘&gt;键重复&gt;快(向右)<br>·键盘&gt;延时直到重复&gt;短(向右)<br>·Dock &gt;自动隐藏和显示Dock</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/02/25/mac-dev-setup/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-express-multer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -828,6 +774,157 @@ gulp.task(<span class="string">'default'</span>, [<span class="string">'connect'
 
 
   
+    <article id="post-populate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/25/populate/">populate</a>
+    </h1>
+  
+
+        
+        <a href="/2015/02/25/populate/" class="archive-article-date">
+  	<time datetime="2015-02-25T10:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>Feb 25 2015</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>populate方法可以通过一个Schema使用ref引用另一个Schema建立起表和表之间的关联，<br>并使用ID定义外键约束便于查询关联的表中相关内容。</p>
+<pre><code><span class="keyword">var</span> <span class="type">PostSchema</span> = <span class="keyword">new</span> <span class="type">Schema</span>({
+  title: {
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">String</span>,
+    required: <span class="literal">true</span>
+  },
+  content: {
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">String</span>
+  },
+  create_by:{
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">Schema</span>.<span class="type">ObjectId</span>,
+    ref: <span class="symbol">'MemberSchem</span>a'        <span class="comment">//关联MemberSchema表</span>
+  },
+  create_at: {
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">Date</span>,
+    <span class="keyword">default</span>: <span class="type">Date</span>.now
+  }
+});
+</code></pre><p>保存外键ID用于建立关系：</p>
+<pre><code>Post.create({
+    title:<span class="string">'1111111111'</span>,
+    content:<span class="string">'ffdddsfdsfdsfsd'</span>,
+    create_by:ObjectId
+},<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>{
+    <span class="keyword">if</span>(err){
+        <span class="built_in">console</span>.log(err)
+    }<span class="keyword">else</span>{
+        <span class="built_in">console</span>.dir(data);
+          process.exit();
+    }
+})
+</code></pre><p>使用populate方法查询：</p>
+<pre><code>Post.find<span class="params">({<span class="string">"_id"</span>:mongoose.Types.ObjectId<span class="params">(<span class="string">"55c2d27dcf2730a80ab7407f"</span>)</span>})</span>.populate<span class="params">('create_by')</span>.exec<span class="params">(function<span class="params">(err,data)</span>{
+if<span class="params">(err)</span>{
+    console.log<span class="params">(err)</span>
+}else{
+    console.dir<span class="params">(data)</span>;
+         process.exit<span class="params">()</span>;
+}
+})</span>;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/02/25/populate/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-supervisor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/25/supervisor/">node supervisor</a>
+    </h1>
+  
+
+        
+        <a href="/2015/02/25/supervisor/" class="archive-article-date">
+  	<time datetime="2015-02-25T10:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>Feb 25 2015</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="supervisor">supervisor</h2><p>supervisor 是node开发工具，node应用修改源码以后，需要重启node，使用supervisor后<br>它会监视文件的改变，然后自动重新启动node</p>
+<h3 id="supervisor用法">supervisor用法</h3><ol>
+<li><p>使用 npm 安装 supervisor</p>
+<p> <code>npm install supervisor -g</code></p>
+<p> 如出现权限错误，使用 </p>
+<p> <code>sudo npm install supervisor -g</code></p>
+</li>
+<li><p>使用 supervisor 命令启动 app.js:</p>
+<p> <code>supervisor app.js</code> </p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/02/25/supervisor/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-smalljs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -995,96 +1092,6 @@ function showUser(ctx){
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2015/02/25/smalljs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-populate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/25/populate/">populate</a>
-    </h1>
-  
-
-        
-        <a href="/2015/02/25/populate/" class="archive-article-date">
-  	<time datetime="2015-02-25T10:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>Feb 25 2015</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>populate方法可以通过一个Schema使用ref引用另一个Schema建立起表和表之间的关联，<br>并使用ID定义外键约束便于查询关联的表中相关内容。</p>
-<pre><code><span class="keyword">var</span> <span class="type">PostSchema</span> = <span class="keyword">new</span> <span class="type">Schema</span>({
-  title: {
-    <span class="class"><span class="keyword">type</span>:</span> <span class="type">String</span>,
-    required: <span class="literal">true</span>
-  },
-  content: {
-    <span class="class"><span class="keyword">type</span>:</span> <span class="type">String</span>
-  },
-  create_by:{
-    <span class="class"><span class="keyword">type</span>:</span> <span class="type">Schema</span>.<span class="type">ObjectId</span>,
-    ref: <span class="symbol">'MemberSchem</span>a'        <span class="comment">//关联MemberSchema表</span>
-  },
-  create_at: {
-    <span class="class"><span class="keyword">type</span>:</span> <span class="type">Date</span>,
-    <span class="keyword">default</span>: <span class="type">Date</span>.now
-  }
-});
-</code></pre><p>保存外键ID用于建立关系：</p>
-<pre><code>Post.create({
-    title:<span class="string">'1111111111'</span>,
-    content:<span class="string">'ffdddsfdsfdsfsd'</span>,
-    create_by:ObjectId
-},<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>{
-    <span class="keyword">if</span>(err){
-        <span class="built_in">console</span>.log(err)
-    }<span class="keyword">else</span>{
-        <span class="built_in">console</span>.dir(data);
-          process.exit();
-    }
-})
-</code></pre><p>使用populate方法查询：</p>
-<pre><code>Post.find<span class="params">({<span class="string">"_id"</span>:mongoose.Types.ObjectId<span class="params">(<span class="string">"55c2d27dcf2730a80ab7407f"</span>)</span>})</span>.populate<span class="params">('create_by')</span>.exec<span class="params">(function<span class="params">(err,data)</span>{
-if<span class="params">(err)</span>{
-    console.log<span class="params">(err)</span>
-}else{
-    console.dir<span class="params">(data)</span>;
-         process.exit<span class="params">()</span>;
-}
-})</span>;
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/02/25/populate/">展开全文 >></a>
         </p>
       
 
