@@ -6,21 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://kezhi.me">
-  <title>nginx 安装 | zhi.ke</title>
+  <title>js常见用法 | zhi.ke</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="➜  ~  ssh root@123.50.222.30
-The authenticity of host ‘123.50.222.30 (123.50.222.30)’ can’t be established.RSA key fingerprint is 16:d5:f2:e6:9b:c8:c2:32:ca:22:35:f8:f3:64:a7:e1.Are you sure you want">
+  <meta name="description" content="冒泡排序123456789101112var arr = [3,2,1,9,7];for(var i = 0; i &amp;lt; arr.length; i++)&amp;#123;    for(var j = 0; j &amp;lt;= arr.length-i; j++)&amp;#123;        var temp;        if(arr[j] &amp;gt; arr[j+1])&amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx 安装">
-<meta property="og:url" content="http://kezhi.me/2015/02/25/deploy-server/index.html">
+<meta property="og:title" content="js常见用法">
+<meta property="og:url" content="http://kezhi.me/2017/03/09/js-common-method/index.html">
 <meta property="og:site_name" content="zhi.ke">
-<meta property="og:description" content="➜  ~  ssh root@123.50.222.30
-The authenticity of host ‘123.50.222.30 (123.50.222.30)’ can’t be established.RSA key fingerprint is 16:d5:f2:e6:9b:c8:c2:32:ca:22:35:f8:f3:64:a7:e1.Are you sure you want">
-<meta property="og:updated_time" content="2015-08-01T03:14:43.000Z">
+<meta property="og:description" content="冒泡排序123456789101112var arr = [3,2,1,9,7];for(var i = 0; i &amp;lt; arr.length; i++)&amp;#123;    for(var j = 0; j &amp;lt;= arr.length-i; j++)&amp;#123;        var temp;        if(arr[j] &amp;gt; arr[j+1])&amp;#123;">
+<meta property="og:updated_time" content="2017-03-09T10:44:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nginx 安装">
-<meta name="twitter:description" content="➜  ~  ssh root@123.50.222.30
-The authenticity of host ‘123.50.222.30 (123.50.222.30)’ can’t be established.RSA key fingerprint is 16:d5:f2:e6:9b:c8:c2:32:ca:22:35:f8:f3:64:a7:e1.Are you sure you want">
+<meta name="twitter:title" content="js常见用法">
+<meta name="twitter:description" content="冒泡排序123456789101112var arr = [3,2,1,9,7];for(var i = 0; i &amp;lt; arr.length; i++)&amp;#123;    for(var j = 0; j &amp;lt;= arr.length-i; j++)&amp;#123;        var temp;        if(arr[j] &amp;gt; arr[j+1])&amp;#123;">
   
     <link rel="alternative" href="/atom.xml" title="zhi.ke" type="application/atom+xml">
   
@@ -148,76 +145,47 @@ The authenticity of host ‘123.50.222.30 (123.50.222.30)’ can’t be establis
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-deploy-server" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js-common-method" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      nginx 安装
+      js常见用法
     </h1>
   
 
         
-        <a href="/2015/02/25/deploy-server/" class="archive-article-date">
-  	<time datetime="2015-02-25T10:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>Feb 25 2015</time>
+        <a href="/2017/03/09/js-common-method/" class="archive-article-date">
+  	<time datetime="2017-03-09T10:38:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>Mar 9 2017</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>➜  ~  ssh root@123.50.222.30</p>
-<p>The authenticity of host ‘123.50.222.30 (123.50.222.30)’ can’t be established.<br>RSA key fingerprint is 16:d5:f2:e6:9b:c8:c2:32:ca:22:35:f8:f3:64:a7:e1.<br>Are you sure you want to continue connecting (yes/no)? yes<br>Warning: Permanently added ‘123.57.222.30’ (RSA) to the list of known hosts.<br>root@123.50.222.30’s password: 111111</p>
-<p>Last login: Wed Jun 10 17:33:35 2015 from 117.10.146.80</p>
-<p>Welcome to aliyun Elastic Compute Service!</p>
-<p>[root@iZ25xk7uei1Z ~]# useradd deploy      //添加用户<br>[root@iZ25xk7uei1Z ~]# ls /home            //查看用户<br>deploy<br>[root@iZ25xk7uei1Z ~]# passwd deploy       //添加密码</p>
-<p>更改用户 deploy 的密码 。</p>
-<p>新的 密码：111111        </p>
-<p>重新输入新的 密码：111111</p>
-<p>passwd：所有的身份验证令牌已经成功更新。</p>
-<p>[root@iZ25xk7uei1Z ~]# su - deploy            //从root用户切换到普通用户，切换至root用户: su</p>
-<p>$ yum info nginx             //查看nginx信息<br>$ sudo yum install nginx     //安装nginx<br>$ sudo service nginx start        //启动服务<br>$ sudo service nginx status        //查看启动状态<br>vi /etc/nginx/nginx.conf       //查看配置文件</p>
-<p>新建目录并进入</p>
-<p>mkdir downloads &amp;&amp; cd downloads</p>
-<p>下载mongodb</p>
-<p>wget <a href="https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.3.tgz" target="_blank" rel="external">https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.3.tgz</a></p>
-<p>解压：</p>
-<p>tar -xzf mongodb-linux-x86_64-3.0.3.tgz</p>
-<p>重命名</p>
-<p>mv mongodb-linux-x86_64-3.0.3 mongodb</p>
-<p>进入bin目录，查看文件</p>
-<p>cd bin/</p>
-<p>$ ls</p>
-<p>bsondump  mongo  mongod  mongodump  mongoexport  mongofiles  mongoimport  mongooplog  mongoperf  mongorestore  mongos  mongostat  mongotop</p>
-<p>新建一个配置文件并写入配置信息</p>
-<p>vi mongodb.conf</p>
-<p>配置信息如下：</p>
-<p>dbpath = /home/deploy/downloads/mongodb/data/test/db #数据文件存放目录<br>logpath = /home/deploy/downloads/mongodb/data/test/logs/mongodb.log #日志文件存放目录<br>port = 27017  #端口<br>fork = true  #以守护程序的方式启用，即在后台运行<br>nohttpinterface = true</p>
-<p>在mongodb目录下创建目录</p>
-<p>/home/deploy/downloads/mongodb/data/test/db</p>
-<p>创建日志文件目录</p>
-<p>/home/deploy/downloads/mongodb/data/test/logs/</p>
-<p>在bin目录下启动<br>./mongod —config mongodb.conf</p>
-<p>注意事项<br>bin/mongodb.conf中的路径一定要和实际的路径对应<br>配置文件中，dbpath是一个目录路径，logpath是一个路径及日志文件</p>
-<p>安装nvm ：</p>
-<p>$ wget -qO- <a href="https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh" target="_blank" rel="external">https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh</a> | bash</p>
-<p>使命令生效：</p>
-<p>source ~/.nvm/nvm.sh</p>
-<p>查看 node版本：</p>
-<p><code>nvm ls-remote</code></p>
-<p>安装所需版本：</p>
-<p><code>nvm install v0.12.4</code></p>
-<p>查看node版本：</p>
-<p><code>node -v</code></p>
-<p>v2.2.1 </p>
-<p>安装pm2:</p>
-<p><code>npm install -g pm2</code></p>
-<p>运行pm2</p>
-<p><code>pm2 start app.js</code></p>
-<p>软链接：</p>
-<p><code>ln -s a b</code>   // a 就是源文件，b是链接文件名,其作用是当进入b目录，实际上是链接进入了a目录</p>
+        <h3 id="冒泡排序">冒泡排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var arr = [3,2,1,9,7];</div><div class="line">for(var i = 0; i &lt; arr.length; i++)&#123;</div><div class="line">    for(var j = 0; j &lt;= arr.length-i; j++)&#123;</div><div class="line">        var temp;</div><div class="line">        if(arr[j] &gt; arr[j+1])&#123;</div><div class="line">            temp = arr[j]</div><div class="line">            arr[j] = arr[j+1]</div><div class="line">            arr[j+1] = temp</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(arr)</div></pre></td></tr></table></figure>
+<h3 id="翻转字符串">翻转字符串</h3><ul>
+<li>方法一</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var str = &apos;翻转字符串一&apos;</div><div class="line">var tem = &apos;&apos;;</div><div class="line">for(var i = str.length-1; i &gt;= 0; i--)&#123;</div><div class="line">    tem += str[i];</div><div class="line">&#125;</div><div class="line">console.log(tem);</div></pre></td></tr></table></figure>
+<ul>
+<li>方法二</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &apos;翻转字符串二&apos;;</div><div class="line">var arrStr = str.split(&apos;&apos;).reverse().join().replace(/,/g, &quot;&quot;);</div><div class="line">console.log(arrStr)</div></pre></td></tr></table></figure>
+<ul>
+<li>方法三</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var str = &apos;翻转字符串三&apos;;</div><div class="line">var arr = str.split(&apos;&apos;);</div><div class="line">var i = 0, j = arr.length-1, tem;</div><div class="line">while(i &lt; j)&#123;</div><div class="line">    tem = arr[i];</div><div class="line">    arr[i] = arr[j];</div><div class="line">    arr[j] = tem;</div><div class="line">    i++;</div><div class="line">    j--</div><div class="line">&#125;</div><div class="line">arr = arr.join(&apos;&apos;);</div><div class="line">console.log(arr)</div></pre></td></tr></table></figure>
+<h3 id="数组去重">数组去重</h3><ul>
+<li>方法一</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var arr = [3,3,4,9,3,4,5];</div><div class="line">var newArr = [];</div><div class="line">for(var i in arr)&#123;</div><div class="line">    console.log(arr[i])</div><div class="line">    if(newArr.indexOf(arr[i]) == -1)&#123;</div><div class="line">        newArr.push(arr[i]);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(newArr)</div></pre></td></tr></table></figure>
+<ul>
+<li>方法二</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr = [3,4,9,3,4,5];</div><div class="line">var newArr = [];</div><div class="line">for(var i = 0, l = arr.length; i&lt;l; i++)&#123;</div><div class="line">    for(var j = i+1; j &lt; l; j++)&#123;</div><div class="line">        if(arr[i] == arr[j])&#123;</div><div class="line">            j = ++i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    newArr.push(arr[i]);</div><div class="line">&#125;</div><div class="line">console.log(newArr)</div></pre></td></tr></table></figure>
 
       
 
@@ -276,7 +244,7 @@ The authenticity of host ‘123.50.222.30 (123.50.222.30)’ can’t be establis
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://kezhi.me/2015/02/25/deploy-server/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://kezhi.me/2017/03/09/js-common-method/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,18 +258,9 @@ The authenticity of host ‘123.50.222.30 (123.50.222.30)’ can’t be establis
   
 <nav id="article-nav">
   
-    <a href="/2015/02/25/gulp-livereload/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Gulp + Gulp-connect + watch + livereload
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/02/25/mac-dev-setup/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mac OS X 系统开发设置</div>
+    <a href="/2015/11/23/诗/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">诗集</div>
       <i class="icon-circle-right"></i>
     </a>
   
