@@ -143,6 +143,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-populate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/25/populate/">populate</a>
+    </h1>
+  
+
+        
+        <a href="/2015/02/25/populate/" class="archive-article-date">
+  	<time datetime="2015-02-25T10:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>Feb 25 2015</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>populate方法可以通过一个Schema使用ref引用另一个Schema建立起表和表之间的关联，<br>并使用ID定义外键约束便于查询关联的表中相关内容。</p>
+<pre><code><span class="keyword">var</span> <span class="type">PostSchema</span> = <span class="keyword">new</span> <span class="type">Schema</span>({
+  title: {
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">String</span>,
+    required: <span class="literal">true</span>
+  },
+  content: {
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">String</span>
+  },
+  create_by:{
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">Schema</span>.<span class="type">ObjectId</span>,
+    ref: <span class="symbol">'MemberSchem</span>a'        <span class="comment">//关联MemberSchema表</span>
+  },
+  create_at: {
+    <span class="class"><span class="keyword">type</span>:</span> <span class="type">Date</span>,
+    <span class="keyword">default</span>: <span class="type">Date</span>.now
+  }
+});
+</code></pre><p>保存外键ID用于建立关系：</p>
+<pre><code>Post.create({
+    title:<span class="string">'1111111111'</span>,
+    content:<span class="string">'ffdddsfdsfdsfsd'</span>,
+    create_by:ObjectId
+},<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>{
+    <span class="keyword">if</span>(err){
+        <span class="built_in">console</span>.log(err)
+    }<span class="keyword">else</span>{
+        <span class="built_in">console</span>.dir(data);
+          process.exit();
+    }
+})
+</code></pre><p>使用populate方法查询：</p>
+<pre><code>Post.find<span class="params">({<span class="string">"_id"</span>:mongoose.Types.ObjectId<span class="params">(<span class="string">"55c2d27dcf2730a80ab7407f"</span>)</span>})</span>.populate<span class="params">('create_by')</span>.exec<span class="params">(function<span class="params">(err,data)</span>{
+if<span class="params">(err)</span>{
+    console.log<span class="params">(err)</span>
+}else{
+    console.dir<span class="params">(data)</span>;
+         process.exit<span class="params">()</span>;
+}
+})</span>;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/02/25/populate/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-supervisor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -187,45 +277,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2015/02/25/supervisor/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-comand" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php55.plist</p>
-<p>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.php55.plist</p>
-<p>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist</p>
-<p>sudo nginx<br>sudo nginx -s stop<br>sudo nginx -s restart<br>sudo nginx -s reload</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/02/25/comand/">展开全文 >></a>
         </p>
       
 
