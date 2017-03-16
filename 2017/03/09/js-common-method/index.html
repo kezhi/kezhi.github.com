@@ -18,7 +18,7 @@
 <meta property="og:description" content="冒泡排序
 
 123456789101112var arr = [3,2,1,9,7];for(var i = 0; i &amp;lt; arr.length; i++)&amp;#123;    for(var j = 0; j &amp;lt;= arr.length-i; j++)&amp;#123;        var temp;        if(arr[j] &amp;gt; arr[j+1])&amp;#123;">
-<meta property="og:updated_time" content="2017-03-09T10:58:52.000Z">
+<meta property="og:updated_time" content="2017-03-10T01:56:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js常见用法">
 <meta name="twitter:description" content="冒泡排序
@@ -188,7 +188,7 @@
 <li>数组去重</li>
 </ul>
 <p>方法一</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var arr = [3,3,4,9,3,4,5];</div><div class="line">var newArr = [];</div><div class="line">for(var i in arr)&#123;</div><div class="line">    console.log(arr[i])</div><div class="line">    if(newArr.indexOf(arr[i]) == -1)&#123;</div><div class="line">        newArr.push(arr[i]);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(newArr)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var arr = [3,3,4,9,3,4,5];</div><div class="line">var newArr = [];</div><div class="line">for(var i in arr)&#123;</div><div class="line">    if(newArr.indexOf(arr[i]) == -1)&#123;</div><div class="line">        newArr.push(arr[i]);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(newArr)</div></pre></td></tr></table></figure>
 <p>方法二</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr = [3,4,9,3,4,5];</div><div class="line">var newArr = [];</div><div class="line">for(var i = 0, l = arr.length; i&lt;l; i++)&#123;</div><div class="line">    for(var j = i+1; j &lt; l; j++)&#123;</div><div class="line">        if(arr[i] == arr[j])&#123;</div><div class="line">            j = ++i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    newArr.push(arr[i]);</div><div class="line">&#125;</div><div class="line">console.log(newArr)</div></pre></td></tr></table></figure>
 
@@ -264,8 +264,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2015/11/23/诗/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">诗集</div>
+    <a href="/2017/03/03/xizang/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">西藏灵魂之旅</div>
       <i class="icon-circle-right"></i>
     </a>
   
